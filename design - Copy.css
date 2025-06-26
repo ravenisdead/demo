@@ -1,0 +1,149 @@
+body {
+  background-color: #9e1010;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  color: #000;
+  overflow: hidden;
+}
+
+
+
+.fade-in-start {
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+
+.fade-in-start.visible {
+  opacity: 1;
+}
+
+.fade-out {
+  opacity: 0 !important;
+}
+
+
+/* Web animation */
+.web-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  opacity: 0;
+  z-index: 10;
+  transition: transform 1s ease, opacity 1s ease, left 1s ease;
+  text-align: center;
+  pointer-events: none;
+}
+
+.web-container.show {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.web-container.shift-left {
+  left: 0%; /* Adjust this to move more or less left */
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.web {
+  width: 650px;
+  max-width: 80vw;
+  height: auto;
+}
+
+/* ---------- Web Navigation Links ---------- */
+.nav-items {
+  position: absolute;
+  top: 50%;
+  left: 15%; /* Matches shift-left for alignment */
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 1s ease;
+  width: 0;
+  height: 0;
+}
+
+.nav-items.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Base link styles */
+.link {
+  width: 50px;
+  position: absolute;
+  color: white;
+  text-decoration: none;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 0.9rem;
+  transition: transform 0.3s ease, opacity 0.5s ease;
+  opacity: 0;
+  --angle: 0deg;
+  transform: rotate(var(--angle));
+}
+
+.nav-items.show .link {
+  opacity: 1;
+}
+
+.link:hover {
+  transform: scale(1.1) rotate(var(--angle));
+}
+
+/* Position individual links */
+.link1 {
+  top: -108px;
+  left: 315px;
+  --angle: -40deg;
+}
+
+.link2 {
+  top: -50px;
+  left: 340px;
+  --angle: -13deg;
+}
+
+.link3 {
+  top: 20px;
+  left: 340px;
+  --angle: 13deg;
+}
+
+.link4 {
+  top: 69px;
+  left:315px;
+  --angle: 42deg;
+}
+
+.goto-btn {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 0.9rem 1.6rem;
+  background-color: #d28b8b;
+  color: rgb(0, 0, 0);
+  border: none;
+  border-radius: 10px;
+  font-size: 1.2rem;
+  font-family: 'Bangers', Impact, sans-serif;
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 1s ease;
+  z-index: 20;
+}
+
+.goto-btn:hover {
+  background-color: #3f0608;
+  color: white;
+}
+
+.goto-btn.show {
+  opacity: 1;
+  pointer-events: auto;
+}
